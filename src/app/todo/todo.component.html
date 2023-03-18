@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row justify-content-center p-4">
+    <input class="form-control me-2 w-50" type="search" placeholder="Search" aria-label="Search">
+  </div>
+</div>
+
+<div class="container">
+  <app-edit-todo-list (addedList)="onAddedList($event)"></app-edit-todo-list>
+
+  <div class="row" *ngIf="list">
+    <div class="col-sm-4 mb-3 mb-sm-0" *ngFor="let listItem of list">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ listItem.name }}</h5>
+          <div *ngIf="listItem.items">
+            <app-todo-item
+            *ngFor="let item of listItem.items"
+            [item]="item"></app-todo-item>
+          </div>
+          <button type="button" class="btn btn-outline-secondary">Add todo items</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

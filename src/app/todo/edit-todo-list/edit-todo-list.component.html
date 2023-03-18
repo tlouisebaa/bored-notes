@@ -1,0 +1,15 @@
+<button
+  type="button"
+  class="btn btn-primary"
+  [hidden]="isAddList"
+  (click)="isAddList=true">
+    Add list
+</button>
+
+<div class="row" *ngIf="isAddList">
+  <div class="col-sm-4 d-flex">
+    <input class="form-control w-50" type="search" placeholder="Card Title" #listNameInput>
+    <button type="button" class="btn btn-primary" (click)="onAddList()">Add list</button>
+    <button type="button" class="btn btn-outline-secondary" (click)="isAddList=false"><i class="bi bi-x-lg"></i></button>
+  </div>
+</div>
